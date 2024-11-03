@@ -92,11 +92,3 @@ class EventAdmin(admin.ModelAdmin):
     search_fields = ('event_id', 'shipment')
     # Read-only fields
     readonly_fields = ('timestamp',)
-
-
-Acceptance Criteria:
-DRF is successfully installed and configured.
-API views are created for vehicles, shipments, and events.
-URL patterns are defined for API endpoints.
-Serializers are implemented for data serialization and deserialization.
-API endpoints are tested and functional.
