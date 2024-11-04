@@ -21,6 +21,8 @@ from drf_yasg import openapi
 from rest_framework import permissions
 from myapp.views import VehicleViewSet, ShipmentViewSet, RegisterView, LoginView, EventViewSet
 from rest_framework.routers import DefaultRouter
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = DefaultRouter()
 router.register(r'vehicles', VehicleViewSet)
@@ -43,4 +45,4 @@ urlpatterns = [
     path('api/register/', RegisterView.as_view(), name='register'),
     path('api/login/', LoginView.as_view(), name='login'),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
